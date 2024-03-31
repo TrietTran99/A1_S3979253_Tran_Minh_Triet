@@ -11,6 +11,7 @@ public class InsuranceCard {
     private String cardHolder;
     private String policyOwner;
     private Date expirationDate;
+    private String cardId;
 
     /**
      * Constructor for InsuranceCard object with the parameters.
@@ -30,6 +31,8 @@ public class InsuranceCard {
     public String getCardNumber() {
         return cardNumber;
     }
+
+    public String getCardId(){return cardId;}
 
     public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;

@@ -19,6 +19,7 @@ import java.util.Arrays;
 public class FileHandler {
     private static final String CUSTOMER_FILE_HEADER = "id,fullname,cardNumber";
     private static final String CLAIM_FILE_HEADER = "id,claimDate,insuredPerson,cardNumber,examDate,documents,claimAmount,status,reciverBankingInfo";
+    private static final String FILE_NAME = "claim.txt";
 
     /**
      * Reads the customer data from a file, then returns a list of Customer objects.
@@ -108,7 +109,7 @@ public class FileHandler {
      */
     public static List<Claim> readClaimsFromFIle(String filename) {
         List<Claim> claims = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             //Skip the header line when reading.
             reader.readLine();
             String line;
@@ -132,7 +133,7 @@ public class FileHandler {
      * @param claims :List of Claim objects to write.
      */
     public static void writeClaimsToFile(String filename, List<Claim> claims) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME))) {
             writer.println("id,claimDate,insuredPerson,cardNumber,examDate,documents,claimAmount,status,receiverBankingInfo");
             for (Claim claim : claims) {
                 String documentList = String.join(";", claim.getDocuments());

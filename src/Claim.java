@@ -59,6 +59,7 @@ public class Claim {
     public void setClaimDate(Date claimDate) {
         this.claimDate = claimDate;
     }
+
     public String getInsuredPerson() {
         return insuredPerson;
     }

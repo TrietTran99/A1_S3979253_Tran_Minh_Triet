@@ -67,7 +67,7 @@ public class Main {
         System.out.println("Adding a new claim...");
 
         //Enter Claim ID
-        System.out.print("Enter claim ID (e.g. CL001): ");
+        System.out.print("Enter claim ID (e.g. f-0123456789): ");
         String id = scanner.nextLine();
 
         //Enter Claim Date - [parsing it make sure the data enter is a Date]
@@ -80,7 +80,7 @@ public class Main {
         String insuredPerson = scanner.nextLine();
 
         //Enter Card Number
-        System.out.print("Enter card number: ");
+        System.out.print("Enter card number (8 numbers maximum): ");
         String cardNumber = scanner.nextLine();
 
         //Enter Exam Date
@@ -198,7 +198,7 @@ public class Main {
         claimToUpdate.setStatus(newStatus);
 
         //Ask User: Enter new receiver banking info
-        System.out.print("Enter new receiver banking info: ");
+        System.out.print("Enter new receiver banking info (bank - name - number [VCB - Jason Tran - 12345678]: ");
         String newReceiverBankingInfo = scanner.nextLine();
         claimToUpdate.setReceiverBankingInfo(newReceiverBankingInfo);
 
@@ -249,10 +249,10 @@ public class Main {
              * Note: The data and the headers may not align with each other, please excuse that matter.
              *       I have recognized the problem and can't seem to find a way to fix this specific problem.
              */
-            System.out.println("ID\tClaim Date\tInsured Person\tCard Number\tExam Date\tClaim Amount\tStatus\tReceiver Banking Info");
+            System.out.println("ID\tClaim Date\tInsured Person\tCard Number\tExam Date\tClaim Documents\tClaim Amount\tStatus\tReceiver Banking Info");
             for (Claim claim : allClaims) {
                 System.out.println(claim.getId() + "\t" + claim.getClaimDate() + "\t" + claim.getInsuredPerson() + "\t" +
-                        claim.getCardNumber() + "\t" + claim.getExamDate() + "\t" + claim.getClaimAmount() + "\t" +
+                        claim.getCardNumber() + "\t" + claim.getExamDate() + "\t" + claim.getDocuments() + "\t" + claim.getClaimAmount() + "\t" +
                         claim.getStatus() + "\t" + claim.getReceiverBankingInfo());
             }
         }
