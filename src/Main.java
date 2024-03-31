@@ -124,11 +124,11 @@ public class Main {
 
     //Resolving the parseDate problem
     private Date parseDate(String dateString) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         try {
             return dateFormat.parse(dateString);
         } catch (ParseException e) {
-            System.out.println("Invalid date format. Please use YYYY-MM-DD format.");
+            System.out.println("Invalid date format. Please use dd-MM-yyyy format.");
             return null;
         }
     }
@@ -149,7 +149,7 @@ public class Main {
         }
 
         //Tell the user they have to update the claim information
-        System.out.print("Enter new claim date (YYYY-MM-DD): ");
+        System.out.print("Enter new claim date (DD-MM-YYYY): ");
         String newClaimDateString = scanner.nextLine();
         Date newClaimDate = parseDate(newClaimDateString);
         if (newClaimDate != null) {
@@ -166,7 +166,7 @@ public class Main {
         claimToUpdate.setCardNumber(newCardNumber);
 
         //Ask User: Enter new exam date
-        System.out.print("Enter new exam date (YYYY-MM-DD): ");
+        System.out.print("Enter new exam date (DD-MM-YYYY): ");
         String newExamDateString = scanner.nextLine();
         Date newExamDate = parseDate(newExamDateString);
         if (newExamDate != null) {

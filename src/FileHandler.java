@@ -74,7 +74,7 @@ public class FileHandler {
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length >= 4) {
-                    InsuranceCard insuranceCard = new InsuranceCard(parts[0], parts[1], parts[2], new SimpleDateFormat("yyyy-MM-dd").parse(parts[3]));
+                    InsuranceCard insuranceCard = new InsuranceCard(parts[0], parts[1], parts[2], new SimpleDateFormat("dd-MM-yyyy").parse(parts[3]));
                     insuranceCards.add(insuranceCard);
                 }
             }
@@ -93,7 +93,7 @@ public class FileHandler {
         try (PrintWriter writer = new PrintWriter(new PrintWriter(filename))) {
             writer.println("cardNumber,cardHolder,policyOwner,expirationDate");
             for (InsuranceCard insuranceCard : insuranceCards) {
-                String expirationDate = new SimpleDateFormat("yyyy-MM-dd").format(insuranceCard.getExpirationDate());
+                String expirationDate = new SimpleDateFormat("dd-MM-yyyy").format(insuranceCard.getExpirationDate());
                 writer.println(insuranceCard.getCardNumber() + "," + insuranceCard.getCardHolder() + "," + insuranceCard.getPolicyOwner() + "," + expirationDate);
             }
         } catch (IOException e) {
@@ -116,7 +116,7 @@ public class FileHandler {
                 String[] parts = line.split(",");
                 if (parts.length >= 8) {
                     List<String> documents = Arrays.asList(parts[5].split(";"));
-                    Claim claim = new Claim(parts[0], new SimpleDateFormat("yyyy-MM-dd").parse(parts[1]), parts[2], parts[3], new SimpleDateFormat("yyyy-MM-dd").parse(parts[4]), documents, Double.parseDouble(parts[6]), parts[7], parts[8]);
+                    Claim claim = new Claim(parts[0], new SimpleDateFormat("dd-MM-yyyy").parse(parts[1]), parts[2], parts[3], new SimpleDateFormat("dd-MM-yyyy").parse(parts[4]), documents, Double.parseDouble(parts[6]), parts[7], parts[8]);
                     claims.add(claim);
                 }
             }
@@ -136,8 +136,8 @@ public class FileHandler {
             writer.println("id,claimDate,insuredPerson,cardNumber,examDate,documents,claimAmount,status,receiverBankingInfo");
             for (Claim claim : claims) {
                 String documentList = String.join(";", claim.getDocuments());
-                String claimDate = new SimpleDateFormat("yyyy-MM-dd").format(claim.getClaimDate());
-                String examDate = new SimpleDateFormat("yyyy-MM-dd").format(claim.getExamDate());
+                String claimDate = new SimpleDateFormat("dd-MM-yyyy").format(claim.getClaimDate());
+                String examDate = new SimpleDateFormat("dd-MM-yyyy").format(claim.getExamDate());
                 writer.println(claim.getId() + "," + claimDate + "," + claim.getInsuredPerson() + "," + claim.getCardNumber() + "," +
                         examDate + "," + documentList + "," + claim.getClaimAmount() + "," + claim.getStatus() + "," +
                         claim.getReceiverBankingInfo());
