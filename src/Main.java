@@ -71,7 +71,7 @@ public class Main {
         String id = scanner.nextLine();
 
         //Enter Claim Date - [parsing it make sure the data enter is a Date]
-        System.out.print("Enter claim date (YYYY-MM-DD): ");
+        System.out.print("Enter claim date (day-month-year [dd-mm-yyyy]): ");
         String claimDateString = scanner.nextLine();
         Date claimDate = parseDate(claimDateString);
 
@@ -84,7 +84,7 @@ public class Main {
         String cardNumber = scanner.nextLine();
 
         //Enter Exam Date
-        System.out.print("Enter exam date (YYYY-MM-DD): ");
+        System.out.print("Enter exam date (day-month-year [dd-mm-yyyy]): ");
         String examDateString = scanner.nextLine();
         Date examDate = parseDate(examDateString);
 
@@ -149,7 +149,7 @@ public class Main {
         }
 
         //Tell the user they have to update the claim information
-        System.out.print("Enter new claim date (DD-MM-YYYY): ");
+        System.out.print("Enter new claim date (day-month-year [dd-mm-yyyy]): ");
         String newClaimDateString = scanner.nextLine();
         Date newClaimDate = parseDate(newClaimDateString);
         if (newClaimDate != null) {
@@ -166,7 +166,7 @@ public class Main {
         claimToUpdate.setCardNumber(newCardNumber);
 
         //Ask User: Enter new exam date
-        System.out.print("Enter new exam date (DD-MM-YYYY): ");
+        System.out.print("Enter new exam date (day-month-year [dd-mm-yyyy]): ");
         String newExamDateString = scanner.nextLine();
         Date newExamDate = parseDate(newExamDateString);
         if (newExamDate != null) {
