@@ -18,6 +18,7 @@ there should be:
 
 Note: Please don't worry about the warnings of each classes, those are just for developers to understand which classes are being used and which aren't.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-**If you have all of these files already downloaded into your IntelliJ, then in order to run this program you need to click the run button next to the Current File position on your navbar.
-Enjoy the ICMS Application**
+If you have all of these files already downloaded into your IntelliJ, then in order to run this program you need to click the run button next to the Current File position on your navbar.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Enjoy the ICMS Application
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
