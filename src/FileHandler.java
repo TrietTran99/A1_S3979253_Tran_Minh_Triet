@@ -23,12 +23,12 @@ public class FileHandler {
 
     /**
      * Reads the customer data from a file, then returns a list of Customer objects.
-     * @param filename :Name of the file to read.
+     * @param FILE_NAME :Name of the file to read.
      * @return list of Customer objects read from the file.
      */
-    public static List<Customer> readCustomersFromFile(String filename) {
+    public static List<Customer> readCustomersFromFile(String FILE_NAME) {
         List<Customer> customers = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             // Skip the header line when reading
             reader.readLine();
             String line;
@@ -47,11 +47,11 @@ public class FileHandler {
 
     /**
      * Writes a list of Customers objects to a file.
-     * @param filename :Name of the file to write.
+     * @param CUSTOMER_FILE_HEADER :Name of the file to write.
      * @param customers :List of Customer objects to write.
      */
-    public static void writeCustomersToFile(String filename, List<Customer> customers) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
+    public static void writeCustomersToFile(String CUSTOMER_FILE_HEADER, List<Customer> customers) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(CUSTOMER_FILE_HEADER))) {
             writer.println(CUSTOMER_FILE_HEADER);
             for (Customer customer : customers) {
                 writer.println(customer.getId() + "," + customer.getFullName() + "," + customer.getInsuranceCard().getCardNumber());
@@ -63,12 +63,12 @@ public class FileHandler {
 
     /**
      * Reads the insurance card data from a file then returns a list of InsuranceCard objects.
-     * @param filename :The name of the file to read.
+     * @param CLAIM_FILE_HEADER :The name of the file to read.
      * @return list of InsuranceCard objects read from the file.
      */
-    public static List<InsuranceCard> readInsuranceCardFromFile(String filename) {
+    public static List<InsuranceCard> readInsuranceCardFromFile(String CLAIM_FILE_HEADER) {
         List<InsuranceCard> insuranceCards = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(CLAIM_FILE_HEADER))) {
             //Skip the header line when reading.
             reader.readLine();
             String line;
@@ -87,11 +87,11 @@ public class FileHandler {
 
     /**
      * Writes list of InsuranceCard objects to a file.
-     * @param filename :Name of the file to write.
+     * @param CLAIM_FILE_HEADER :Name of the file to write.
      * @param insuranceCards :List of InsuranceCard objects to write.
      */
-    public static void writeInsuranceCardsToFile(String filename, List<InsuranceCard> insuranceCards) {
-        try (PrintWriter writer = new PrintWriter(new PrintWriter(filename))) {
+    public static void writeInsuranceCardsToFile(String CLAIM_FILE_HEADER, List<InsuranceCard> insuranceCards) {
+        try (PrintWriter writer = new PrintWriter(new PrintWriter(CLAIM_FILE_HEADER))) {
             writer.println("cardNumber,cardHolder,policyOwner,expirationDate");
             for (InsuranceCard insuranceCard : insuranceCards) {
                 String expirationDate = new SimpleDateFormat("dd-MM-yyyy").format(insuranceCard.getExpirationDate());
@@ -104,12 +104,12 @@ public class FileHandler {
 
     /**
      * Reads claim data from a file and returns a list of Claim objects.
-     * @param filename :Name of the file to read from.
+     * @param CLAIM_FILE_HEADER :Name of the file to read from.
      * @return list of Claim objects read from the file.
      */
-    public static List<Claim> readClaimsFromFIle(String filename) {
+    public static List<Claim> readClaimsFromFIle(String CLAIM_FILE_HEADER) {
         List<Claim> claims = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(CLAIM_FILE_HEADER))) {
             //Skip the header line when reading.
             reader.readLine();
             String line;
@@ -129,11 +129,11 @@ public class FileHandler {
 
     /**
      * Writes a list of Claim objects to a file.
-     * @param filename :Name of the file to write.
+     * @param CLAIM_FILE_HEADER :Name of the file to write.
      * @param claims :List of Claim objects to write.
      */
-    public static void writeClaimsToFile(String filename, List<Claim> claims) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME))) {
+    public static void writeClaimsToFile(String CLAIM_FILE_HEADER, List<Claim> claims) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(CLAIM_FILE_HEADER))) {
             writer.println("id,claimDate,insuredPerson,cardNumber,examDate,documents,claimAmount,status,receiverBankingInfo");
             for (Claim claim : claims) {
                 String documentList = String.join(";", claim.getDocuments());
